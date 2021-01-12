@@ -13,6 +13,31 @@ Start the dev server,
 ```bash
 $ yarn start
 ```
+## 9.
+
+
+## 8.
+
+
+## 7.
+
+
+## 6.
+
+## 5. 编写部门页面
+
+添加 @ant-design/pro-table
+```json
+yarn add @ant-design/pro-table
+```
+dept.tsx
+
+```jsx
+
+
+```
+
+
 
 ## 4.配置菜单的样式
 ```js

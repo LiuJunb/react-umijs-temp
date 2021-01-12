@@ -1,6 +1,171 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { PlusOutlined, EllipsisOutlined } from '@ant-design/icons';
+import { Button, Tag, Space, Menu, Dropdown } from 'antd';
+import type { ProColumns, ActionType } from '@ant-design/pro-table';
+import ProTable, { TableDropdown } from '@ant-design/pro-table';
+import request from 'umi-request';
 import styles from './index.less';
+import { PageContainer } from '@ant-design/pro-layout';
+
+type GithubIssueItem = {
+  url: string;
+  id: number;
+  number: number;
+  title: string;
+  labels: {
+    name: string;
+    color: string;
+  }[];
+  state: string;
+  comments: number;
+  created_at: string;
+  updated_at: string;
+  closed_at?: string;
+};
+
+const columns: ProColumns<GithubIssueItem>[] = [
+  {
+    dataIndex: 'index',
+    valueType: 'indexBorder',
+    width: 48,
+  },
+  {
+    title: '标题',
+    dataIndex: 'title',
+    copyable: true,
+    ellipsis: true,
+    tip: '标题过长会自动收缩',
+    formItemProps: {
+      rules: [
+        {
+          required: true,
+          message: '此项为必填项',
+        },
+      ],
+    },
+    width: '30%',
+  },
+  {
+    title: '状态',
+    dataIndex: 'state',
+    initialValue: 'open',
+    filters: true,
+    onFilter: true,
+    valueType: 'select',
+    valueEnum: {
+      all: { text: '全部', status: 'Default' },
+      open: {
+        text: '未解决',
+        status: 'Error',
+      },
+      closed: {
+        text: '已解决',
+        status: 'Success',
+        disabled: true,
+      },
+      processing: {
+        text: '解决中',
+        status: 'Processing',
+      },
+    },
+  },
+  {
+    title: '标签',
+    dataIndex: 'labels',
+    renderFormItem: (_, { defaultRender }) => {
+      return defaultRender(_);
+    },
+    render: (_, record) => (
+      <Space>
+        {record.labels.map(({ name, color }) => (
+          <Tag color={color} key={name}>
+            {name}
+          </Tag>
+        ))}
+      </Space>
+    ),
+  },
+  {
+    title: '创建时间',
+    key: 'created_at',
+    dataIndex: 'created_at',
+    valueType: 'date',
+  },
+  {
+    title: '操作',
+    valueType: 'option',
+    render: (text, record, _, action) => [
+      <a
+        key="editable"
+        onClick={() => {
+          action.startEditable?.(record.id);
+        }}
+      >
+        编辑
+      </a>,
+      <a href={record.url} target="_blank" rel="noopener noreferrer" key="view">
+        查看
+      </a>,
+      <TableDropdown
+        key="actionGroup"
+        onSelect={() => action.reload()}
+        menus={[
+          { key: 'copy', name: '复制' },
+          { key: 'delete', name: '删除' },
+        ]}
+      />,
+    ],
+  },
+];
+
+const menu = (
+  <Menu>
+    <Menu.Item key="1">1st item</Menu.Item>
+    <Menu.Item key="2">2nd item</Menu.Item>
+    <Menu.Item key="3">3rd item</Menu.Item>
+  </Menu>
+);
 
 export default (props: any) => {
-  return <div className={styles.dept}>dept page</div>;
+  // return <div className={styles.dept}>dept page</div>;
+
+  const actionRef = useRef<ActionType>();
+
+  return (
+    <PageContainer>
+      <ProTable<GithubIssueItem>
+        columns={columns}
+        actionRef={actionRef}
+        request={async (params = {}) =>
+          request<{
+            data: GithubIssueItem[];
+          }>('https://proapi.azurewebsites.net/github/issues', {
+            params,
+          })
+        }
+        editable={{
+          type: 'multiple',
+        }}
+        rowKey="id"
+        search={{
+          labelWidth: 'auto',
+        }}
+        pagination={{
+          pageSize: 5,
+        }}
+        dateFormatter="string"
+        headerTitle="高级表格"
+        toolBarRender={() => [
+          <Button key="button" icon={<PlusOutlined />} type="primary">
+            新建
+          </Button>,
+          <Dropdown key="menu" overlay={menu}>
+            <Button>
+              <EllipsisOutlined />
+            </Button>
+          </Dropdown>,
+        ]}
+      />
+    </PageContainer>
+  );
 };

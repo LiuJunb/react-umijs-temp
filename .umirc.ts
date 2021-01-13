@@ -4,6 +4,17 @@ export default defineConfig({
   nodeModulesTransform: {
     type: 'none',
   },
+  qiankun: {
+    master: {
+      // 1.注册子应用信息  2.配置路由
+      apps: [
+        {
+          name: 'fsweb', // 唯一 id, 应用名称
+          entry: '//localhost:7001', // html entry
+        },
+      ],
+    },
+  },
   routes: [
     // 重定向
     { path: '/', redirect: '/child/sys/dept' },
@@ -41,6 +52,11 @@ export default defineConfig({
 
         // 首页 - 模块
         { exact: true, path: '/child/home', component: '@/pages/home/index' },
+        // 配置 fsweb 关联的路由
+        {
+          path: '/child/fsweb', // 子应用的路由
+          microApp: 'fsweb', // 微应用名称
+        },
       ],
     },
   ],

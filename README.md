@@ -8,6 +8,12 @@ Install dependencies,
 $ yarn
 ```
 
+Install types
+
+```bash
+yarn add @umi/types --dev
+```
+
 Start the dev server,
 
 ```bash

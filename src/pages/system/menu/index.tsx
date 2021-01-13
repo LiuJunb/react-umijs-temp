@@ -1,6 +1,16 @@
 import React from 'react';
 import styles from './index.less';
+import { Select } from 'antd';
+
+const { Option } = Select;
 
 export default (props: any) => {
-  return <div className={styles.menu}>menu page</div>;
+  return (
+    <div className={styles.menu}>
+      menu page
+      <Select defaultValue="lucy" style={{ width: 120 }} allowClear>
+        <Option value="lucy">Lucy</Option>
+      </Select>
+    </div>
+  );
 };

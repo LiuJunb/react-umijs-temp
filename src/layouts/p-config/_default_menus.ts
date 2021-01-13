@@ -42,6 +42,34 @@ const route = {
         },
       ],
     },
+    {
+      path: '/child/fsweb',
+      name: 'fsweb管理',
+      access: 'canAdmin',
+      // component: './Admin',
+      routes: [
+        {
+          path: '/child/fsweb/main/sys/dept',
+          name: '部门管理',
+          // component: './Welcome',
+        },
+        {
+          path: '/child/fsweb/main/sys/menu',
+          name: '菜单管理',
+          // component: './Welcome',
+        },
+        {
+          path: '/child/fsweb/main/sys/role',
+          name: '角色管理',
+          // component: './Welcome',
+        },
+        {
+          path: '/child/fsweb/main/sys/user',
+          name: '用户管理',
+          // component: './Welcome',
+        },
+      ],
+    },
   ],
 };
 export { route };

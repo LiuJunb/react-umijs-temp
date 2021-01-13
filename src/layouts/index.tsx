@@ -34,7 +34,7 @@ export default (props: any) => {
       splitMenus={true}
       navTheme="light"
     >
-      {props.mainren}
+      {props.children}
     </ProLayout>
   );
 };

@@ -5,18 +5,18 @@ import { route } from './p-config/_default_menus';
 import { history } from 'umi';
 // 全局布局组件
 export default (props: any) => {
-  const [pathname, setPathname] = useState('/child/sys/dept');
+  const [pathname, setPathname] = useState('/main/sys/dept');
   return (
     <ProLayout
       menuItemRender={(item: any, dom: any) => (
         <div
           onClick={() => {
-            if (item.path === '/child/sys') {
-              history.push('/child/sys/dept');
-              setPathname('/child/sys/dept');
+            if (item.path === '/main/sys') {
+              history.push('/main/sys/dept');
+              setPathname('/main/sys/dept');
             } else {
-              history.push(item.path || '/child/sys/dept');
-              setPathname(item.path || '/child/sys/dept');
+              history.push(item.path || '/main/sys/dept');
+              setPathname(item.path || '/main/sys/dept');
             }
           }}
         >
@@ -34,7 +34,7 @@ export default (props: any) => {
       splitMenus={true}
       navTheme="light"
     >
-      {props.children}
+      {props.mainren}
     </ProLayout>
   );
 };

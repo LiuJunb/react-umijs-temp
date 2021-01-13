@@ -9,34 +9,34 @@ const route = {
   path: '/',
   routes: [
     {
-      path: '/child/home',
+      path: '/main/home',
       name: '首页',
       // icon: <CrownOutlined />,
       // component: './Welcome',
     },
     {
-      path: '/child/sys',
+      path: '/main/sys',
       name: '系统管理',
       access: 'canAdmin',
       // component: './Admin',
       routes: [
         {
-          path: '/child/sys/dept',
+          path: '/main/sys/dept',
           name: '部门管理',
           // component: './Welcome',
         },
         {
-          path: '/child/sys/menu',
+          path: '/main/sys/menu',
           name: '菜单管理',
           // component: './Welcome',
         },
         {
-          path: '/child/sys/role',
+          path: '/main/sys/role',
           name: '角色管理',
           // component: './Welcome',
         },
         {
-          path: '/child/sys/user',
+          path: '/main/sys/user',
           name: '用户管理',
           // component: './Welcome',
         },

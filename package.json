@@ -1,4 +1,5 @@
 {
+  "name": "adminweb",
   "private": true,
   "scripts": {
     "start": "umi dev",
@@ -28,6 +29,7 @@
   "devDependencies": {
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
+    "@umijs/plugin-qiankun": "^2.19.0",
     "@umijs/test": "^3.3.4",
     "lint-staged": "^10.0.7",
     "prettier": "^2.2.0",

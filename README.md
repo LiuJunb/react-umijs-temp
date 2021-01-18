@@ -25,7 +25,19 @@ $ yarn start
 ## 8.
 
 
-## 7.
+## 7.Umi 项目集成 dumi
+https://d.umijs.org/zh-CN/guide/advanced#umi-%E9%A1%B9%E7%9B%AE%E9%9B%86%E6%88%90%E6%A8%A1%E5%BC%8F
+
+```bash
+yarn add @umijs/preset-dumi -dev
+```
+
+.umirc.ts
+```js
+ resolve: {
+    includes: ['src/components'],
+},
+```
 
 
 ## 6.重写头部的样式

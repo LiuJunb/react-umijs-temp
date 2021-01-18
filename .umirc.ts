@@ -51,4 +51,8 @@ export default defineConfig({
     '@primary-color': '#3D84FD', // #3988FF
     '@layout-header-background': '#14305A',
   },
+  // dumi
+  resolve: {
+    includes: ['src/components'],
+  },
 });

@@ -38,7 +38,7 @@ export default (props: any) => {
       layout="mix"
       fixedHeader={true}
       fixSiderbar={true}
-      // splitMenus={true}
+      splitMenus={true}
       navTheme="light"
       logo={() => <img src="/icons/logo/logo2.png" className="logo"></img>}
       title=""

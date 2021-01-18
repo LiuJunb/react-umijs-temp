@@ -3,6 +3,7 @@ import styles from './index.less';
 import ProLayout from '@ant-design/pro-layout';
 import { route } from './p-config/_default_menus';
 import { history } from 'umi';
+import { HomeOutlined } from '@ant-design/icons';
 // 全局布局组件
 export default (props: any) => {
   const [pathname, setPathname] = useState('/child/sys/dept');
@@ -21,10 +22,15 @@ export default (props: any) => {
             }
           }}
         >
-          pre {dom}
+          menu: {dom}
         </div>
       )}
-      subMenuItemRender={(_, dom) => <div>pre {dom}</div>}
+      subMenuItemRender={(_, dom) => (
+        <div>
+          <HomeOutlined />
+          {dom}
+        </div>
+      )}
       route={route}
       location={{
         pathname,
@@ -32,7 +38,7 @@ export default (props: any) => {
       layout="mix"
       fixedHeader={true}
       fixSiderbar={true}
-      splitMenus={true}
+      // splitMenus={true}
       navTheme="light"
       logo={() => <img src="/icons/logo/logo2.png" className="logo"></img>}
       title=""

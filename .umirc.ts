@@ -9,6 +9,8 @@ export default defineConfig({
     { path: '/', redirect: '/child/sys/dept' },
     // 登录页面
     { exact: true, path: '/login', component: '@/login/index' },
+    // 组件文档
+    // { exact: true, path: '/~docs', component: '@/components/index' },
     // layouts
     {
       path: '/child',

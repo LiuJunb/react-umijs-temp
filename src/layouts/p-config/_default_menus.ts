@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  SmileOutlined,
-  CrownOutlined,
-  TabletOutlined,
-} from '@ant-design/icons';
+import { SmileOutlined, HomeOutlined, TabletOutlined } from '@ant-design/icons';
 
 const route = {
   path: '/',
@@ -11,7 +7,7 @@ const route = {
     {
       path: '/child/home',
       name: '首页',
-      // icon: <CrownOutlined />,
+      // icon: 'smile',
       // component: './Welcome',
     },
     {

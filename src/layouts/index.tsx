@@ -8,6 +8,7 @@ export default (props: any) => {
   const [pathname, setPathname] = useState('/child/sys/dept');
   return (
     <ProLayout
+      className={styles['liu-pro-layout']}
       menuItemRender={(item: any, dom: any) => (
         <div
           onClick={() => {
@@ -33,6 +34,8 @@ export default (props: any) => {
       fixSiderbar={true}
       splitMenus={true}
       navTheme="light"
+      logo={() => <img src="/icons/logo/logo2.png" className="logo"></img>}
+      title=""
     >
       {props.children}
     </ProLayout>

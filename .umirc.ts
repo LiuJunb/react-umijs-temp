@@ -44,4 +44,9 @@ export default defineConfig({
       ],
     },
   ],
+  // https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less
+  theme: {
+    '@primary-color': '#3D84FD', // #3988FF
+    '@layout-header-background': '#14305A',
+  },
 });

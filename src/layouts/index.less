@@ -1,5 +1,46 @@
-.layout {
-  // background-color: pink;
-  width: 100%;
-  height: 100%;
+@hheight: 60px; // 默认是 48px
+// 头部导航栏的高度
+@navHeight: @hheight;
+// logo图片的高度
+@logoHeight: @hheight;
+
+// 重写antd 组件样式 https://pro.ant.design/docs/style-cn
+/* 定义单个全局样式 */
+// :global(.ant-pro-fixed-header) {
+//   height: @navHeight !important;
+// }
+
+/* 定义多个全局样式 */
+:global {
+  .ant-layout {
+    .ant-layout-header {
+      // 左边头部
+      height: @navHeight !important;
+      // 左边头部 logo
+      .logo {
+        height: @logoHeight;
+      }
+
+      // 中间头部
+      .ant-pro-top-nav-header-menu {
+        line-height: @navHeight;
+        // 有头部一级菜单（选中样式）
+        .ant-menu-item-only-child:hover,
+        .ant-menu-item-active,
+        .ant-menu-item-selected {
+          color: #3d84fd;
+          font-size: 15px;
+          background-color: transparent;
+        }
+      }
+    }
+  }
+
+  // 菜单
+  .ant-design-pro .ant-layout-sider-light {
+    padding-top: @navHeight !important;
+  }
+}
+
+.liu-pro-layout {
 }

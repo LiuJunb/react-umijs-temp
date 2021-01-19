@@ -187,7 +187,9 @@ git commit -m"xx"
 
 7.报错
 
-cannot find type definition file for json5
+JSON schema for the TypeScript compiler's configuration file
+
+Cannot find type definition file for 'json5'.ts
 
 Parsing error: "parserOptions.project" has been set for @typescript-eslint/parser.
 The file does not match your project config: .eslintrc.js.

@@ -4,7 +4,15 @@
     "start": "umi dev",
     "build": "umi build",
     "postinstall": "umi generate tmp",
-    "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
+    "lint": "umi g tmp && npm run lint:js && npm run lint:style && npm run lint:prettier",
+    "lint-staged": "lint-staged",
+    "lint-staged:js": "eslint --ext .js,.jsx,.ts,.tsx ",
+    "lint:fix": "eslint --fix --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src && npm run lint:style",
+    "lint:js": "eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src",
+    "lint:prettier": "prettier --check \"src/**/*\" --end-of-line auto",
+    "lint:style": "stylelint --fix \"src/**/*.less\" --syntax less",
+    "precommit": "lint-staged",
+    "prettier": "prettier -c --write \"src/**/*\"",
     "test": "umi-test",
     "test:coverage": "umi-test --coverage"
   },
@@ -12,6 +20,8 @@
     "pre-commit": "lint-staged"
   },
   "lint-staged": {
+    "**/*.less": "stylelint --syntax less",
+    "**/*.{js,jsx,ts,tsx}": "npm run lint-staged:js",
     "*.{js,jsx,less,md,json}": [
       "prettier --write"
     ],
@@ -28,6 +38,7 @@
   "devDependencies": {
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
+    "@umijs/fabric": "^2.5.2",
     "@umijs/test": "^3.3.4",
     "lint-staged": "^10.0.7",
     "prettier": "^2.2.0",

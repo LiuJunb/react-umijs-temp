@@ -4,7 +4,7 @@ import { Button, Tag, Space, Menu, Dropdown } from 'antd';
 import type { ProColumns, ActionType } from '@ant-design/pro-table';
 import ProTable, { TableDropdown } from '@ant-design/pro-table';
 import request from 'umi-request';
-import styles from './index.less';
+// import styles from './index.less';
 import { PageContainer } from '@ant-design/pro-layout';
 
 type GithubIssueItem = {
@@ -126,7 +126,7 @@ const menu = (
   </Menu>
 );
 
-export default (props: any) => {
+export default () => {
   // return <div className={styles.dept}>dept page</div>;
 
   const actionRef = useRef<ActionType>();

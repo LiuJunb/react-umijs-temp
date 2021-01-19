@@ -1,5 +1,5 @@
-import React from 'react';
-import { SmileOutlined, HomeOutlined, TabletOutlined } from '@ant-design/icons';
+// import React from 'react';
+// import { SmileOutlined, HomeOutlined, TabletOutlined } from '@ant-design/icons';
 
 const route = {
   path: '/',

@@ -4,6 +4,7 @@ import ProLayout from '@ant-design/pro-layout';
 import { route } from './p-config/_default_menus';
 import { history } from 'umi';
 import { HomeOutlined } from '@ant-design/icons';
+
 // 全局布局组件
 export default (props: any) => {
   const [pathname, setPathname] = useState('/child/sys/dept');

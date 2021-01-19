@@ -3,6 +3,7 @@
     "target": "esnext",
     "module": "esnext",
     "moduleResolution": "node",
+    "lib": ["esnext", "dom"],
     "importHelpers": true,
     "jsx": "react",
     "esModuleInterop": true,
@@ -19,6 +20,10 @@
     "mock/**/*",
     "src/**/*",
     "config/**/*",
+    ".eslintrc.js",
+    ".stylelintrc.js",
+    ".prettierrc.js",
+    "jest.config.js",
     ".umirc.ts",
     "typings.d.ts"
   ],

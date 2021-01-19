@@ -22,7 +22,17 @@ $ yarn start
 
 ## 9.
 
-## 8.
+## 8.添加需要兼容的：目标浏览器
+
+以后在使用到兼容的插件的时候，就会根据这个目标浏览器来转换代码
+
+```bash
+"browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 10"
+]
+```
 
 ## 7.集成编码规范
 
@@ -243,9 +253,6 @@ The file must be included in at least one of the projects provided.eslint
   .ant-design-pro .ant-layout-sider-light {
     padding-top: @navHeight !important;
   }
-}
-
-.liu-pro-layout {
 }
 ```
 

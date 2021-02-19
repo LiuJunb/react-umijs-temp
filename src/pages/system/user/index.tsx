@@ -69,7 +69,6 @@ const valueEnum: Record<number, string> = {
   2: 'online',
   3: 'error',
 };
-
 const labels = [
   {
     name: 'A',

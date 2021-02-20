@@ -5,7 +5,7 @@ import { PageContainer } from '@ant-design/pro-layout';
 import { Tag, Space, Button } from 'antd';
 import type { ProColumns, ActionType } from '@ant-design/pro-table';
 import ProTable from '@ant-design/pro-table';
-
+import { history } from 'umi';
 // 定义类型
 type UserItem = {
   id: number;
@@ -137,7 +137,7 @@ export default () => {
 
   return (
     // 1.页面组件
-    <PageContainer>
+    <PageContainer fixedHeader>
       {/* 2.表格组件属性：
            https://ant.design/components/table-cn/#API
            https://procomponents.ant.design/components/table/#api
@@ -160,6 +160,14 @@ export default () => {
         actionRef={actionRef}
         formRef={ref}
         toolBarRender={() => [
+          <Button
+            key="set0"
+            onClick={() => {
+              history.push('/child/sys/user/create');
+            }}
+          >
+            新建
+          </Button>,
           <Button
             key="set1"
             onClick={() => {

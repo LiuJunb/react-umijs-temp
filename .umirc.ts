@@ -35,10 +35,23 @@ export default defineConfig({
           path: '/child/sys/role',
           component: '@/pages/system/role/index',
         },
+        // 用户
         {
           exact: true,
           path: '/child/sys/user',
           component: '@/pages/system/user/index',
+        },
+        // 用户详情
+        {
+          exact: true,
+          path: '/child/sys/user/detail',
+          component: '@/pages/system/user/detail/index',
+        },
+        // 新建、编辑用户
+        {
+          exact: true,
+          path: '/child/sys/user/create',
+          component: '@/pages/system/user/create/index',
         },
 
         // 首页 - 模块

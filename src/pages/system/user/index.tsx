@@ -68,10 +68,20 @@ const columns: ProColumns<UserItem>[] = [
     valueType: 'option',
     render: () => {
       return [
-        <a key="a1" onClick={() => {}}>
+        <a
+          key="a1"
+          onClick={() => {
+            history.push('/child/sys/user/create?id=12');
+          }}
+        >
           编辑
         </a>,
-        <a key="a2" onClick={() => {}}>
+        <a
+          key="a2"
+          onClick={() => {
+            history.push('/child/sys/user/detail');
+          }}
+        >
           查看
         </a>,
         <a key="a3" onClick={() => {}}>

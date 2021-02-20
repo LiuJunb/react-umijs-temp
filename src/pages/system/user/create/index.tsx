@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 // import styles from './index.less';
 import { PageContainer } from '@ant-design/pro-layout';
-import { Link } from 'umi';
+import { Link, history } from 'umi';
 
 // 新建用户页面
 export default () => {
@@ -18,11 +18,17 @@ export default () => {
     return <Link to={route.path}>{route.breadcrumbName}</Link>;
   }
 
+  const { query } = history.location;
+
+  // 用户的id
+  const [userId] = useState(query!.id || null);
+  const [titleName] = useState(userId ? '编辑' : '新建');
+
   return (
     <PageContainer
       fixedHeader
       header={{
-        title: '新建用户',
+        title: `${titleName}用户`,
         breadcrumb: {
           itemRender,
           routes: [
@@ -36,7 +42,7 @@ export default () => {
             },
             {
               path: '',
-              breadcrumbName: '新建',
+              breadcrumbName: titleName,
             },
           ],
         },

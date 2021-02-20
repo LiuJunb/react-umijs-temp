@@ -6,7 +6,7 @@ import type { ProColumns } from '@ant-design/pro-table';
 import ProTable from '@ant-design/pro-table';
 
 // 定义类型
-type UserItem = {
+type MenuItem = {
   id: number;
   name: string;
   title: string;
@@ -19,7 +19,7 @@ type UserItem = {
 };
 
 // 列的配置
-const columns: ProColumns<UserItem>[] = [
+const columns: ProColumns<MenuItem>[] = [
   // {
   //   title: 'id',
   //   dataIndex: 'id',
@@ -62,7 +62,7 @@ const columns: ProColumns<UserItem>[] = [
 ];
 
 // mock 数据源
-const tableListDataSource: UserItem[] = [];
+const tableListDataSource: MenuItem[] = [];
 const valueEnum: Record<number, string> = {
   0: 'close',
   1: 'running',
@@ -102,7 +102,7 @@ export default () => {
            https://ant.design/components/table-cn/#API
            https://procomponents.ant.design/components/table/#api
       */}
-      <ProTable<UserItem>
+      <ProTable<MenuItem>
         columns={columns}
         pagination={{
           pageSize: 10,

@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import type { FormInstance } from 'antd';
 // import styles from './index.less';
 import { PageContainer } from '@ant-design/pro-layout';
-import { Tag, Space } from 'antd';
-import type { ProColumns } from '@ant-design/pro-table';
+import { Tag, Space, Button } from 'antd';
+import type { ProColumns, ActionType } from '@ant-design/pro-table';
 import ProTable from '@ant-design/pro-table';
 
 // 定义类型
 type UserItem = {
   id: number;
+  // key: number;
   name: string;
   title: string;
   content: string;
@@ -59,6 +61,25 @@ const columns: ProColumns<UserItem>[] = [
       </Space>
     ),
   },
+  {
+    title: '操作',
+    // key: 'option',
+    width: 200,
+    valueType: 'option',
+    render: () => {
+      return [
+        <a key="a1" onClick={() => {}}>
+          编辑
+        </a>,
+        <a key="a2" onClick={() => {}}>
+          查看
+        </a>,
+        <a key="a3" onClick={() => {}}>
+          删除
+        </a>,
+      ];
+    },
+  },
 ];
 
 // mock 数据源
@@ -83,6 +104,7 @@ const labels = [
 for (let i = 0; i < 12; i += 1) {
   tableListDataSource.push({
     id: i,
+    // key: i,
     name: `AppName${i}`,
     title: `标题${i}`,
     content:
@@ -96,6 +118,23 @@ for (let i = 0; i < 12; i += 1) {
 
 // props: any
 export default () => {
+  const ref = useRef<FormInstance>();
+  /**
+    // 刷新
+    ref.current.reload();
+    // 刷新并清空,页码也会重置
+    ref.current.reloadAndRest();
+    // 重置到默认值
+    ref.current.reset();
+    // 清空选中项
+    ref.current.clearSelected();
+    // 开始编辑
+    ref.current.startEditable(rowKey);
+    // 结束编辑
+    ref.current.cancelEditable(rowKey);
+   */
+  const actionRef = useRef<ActionType>();
+
   return (
     // 1.页面组件
     <PageContainer>
@@ -117,6 +156,36 @@ export default () => {
             success: true,
           });
         }}
+        rowKey="id"
+        actionRef={actionRef}
+        formRef={ref}
+        toolBarRender={() => [
+          <Button
+            key="set1"
+            onClick={() => {
+              if (ref.current) {
+                // 给高级检索赋值
+                ref.current.setFieldsValue({
+                  name: 'test-xxx',
+                });
+              }
+            }}
+          >
+            检索赋值
+          </Button>,
+          <Button
+            key="set2"
+            onClick={() => {
+              if (actionRef.current) {
+                // 刷新
+                // actionRef.current.reload();
+                actionRef.current.reloadAndRest!();
+              }
+            }}
+          >
+            触发 actionRef
+          </Button>,
+        ]}
       ></ProTable>
     </PageContainer>
   );

@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import type { FormInstance } from 'antd';
 // import styles from './index.less';
 import { PageContainer } from '@ant-design/pro-layout';
-import { Tag, Space } from 'antd';
+import { Tag, Space, Button } from 'antd';
 import type { ProColumns } from '@ant-design/pro-table';
 import ProTable from '@ant-design/pro-table';
 
@@ -27,6 +28,10 @@ type RoleItem = {
 const columns: ProColumns<RoleItem>[] = [
   {
     title: '序号',
+    dataIndex: 'id',
+  },
+  {
+    title: '序号 Border',
     dataIndex: 'index',
     valueType: 'indexBorder', // 指定列的类型
   },
@@ -172,12 +177,15 @@ for (let i = 0; i < 12; i += 1) {
 }
 // props: any
 export default () => {
+  const ref = useRef<FormInstance>();
+
   return (
-    // 1.页面组件
     <PageContainer>
+      {' '}
+      {/* 1.页面组件 */}
       {/* 2.表格组件属性：
-           https://ant.design/components/table-cn/#API
-           https://procomponents.ant.design/components/table/#api
+          https://ant.design/components/table-cn/#API
+          https://procomponents.ant.design/components/table/#api
       */}
       <ProTable<RoleItem>
         columns={columns}
@@ -201,6 +209,23 @@ export default () => {
             success: true,
           });
         }}
+        formRef={ref}
+        toolBarRender={() => [
+          <Button
+            key="set"
+            onClick={() => {
+              if (ref.current) {
+                // 给高级检索赋值
+                ref.current.setFieldsValue({
+                  name: 'test-xxx',
+                  custom1: { number: 10, currency: 'dollar' },
+                });
+              }
+            }}
+          >
+            检索赋值
+          </Button>,
+        ]}
       ></ProTable>
     </PageContainer>
   );

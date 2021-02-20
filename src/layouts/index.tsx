@@ -7,7 +7,12 @@ import { HomeOutlined } from '@ant-design/icons';
 
 // 全局布局组件
 export default (props: any) => {
-  const [pathname, setPathname] = useState('/child/sys/dept');
+  const { location } = history;
+  // console.log('liujun---,', location)
+  const [pathname, setPathname] = useState(
+    location.pathname || '/child/sys/dept',
+  );
+
   return (
     <ProLayout
       className={styles['liu-pro-layout']}

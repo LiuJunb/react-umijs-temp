@@ -116,6 +116,7 @@ export default () => {
             success: true,
           });
         }}
+        rowKey="id"
       ></ProTable>
     </PageContainer>
   );

@@ -28,7 +28,15 @@ $ yarn start
 
 ## 12.
 
-## 11.
+## 11.登录页面
+安装依赖
+```
+yarn add @ant-design/pro-form@1.15.4
+yarn add @ant-design/icons@4.5.0
+
+```
+
+
 
 
 ## 10.demo案例

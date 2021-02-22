@@ -24,6 +24,12 @@ export default () => {
   const [userId] = useState(query!.id || null);
   const [titleName] = useState(userId ? '编辑' : '新建');
 
+  // 监听路由
+  // history.listen((location, action) => {
+  //   console.log(location.query);
+  //   console.log(action); // push
+  // });
+
   return (
     <PageContainer
       fixedHeader

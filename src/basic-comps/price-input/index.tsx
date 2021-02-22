@@ -6,7 +6,7 @@ const { Option } = Select;
 type Currency = 'rmb' | 'dollar';
 
 // value的数据类型
-interface PriceValue {
+export interface PriceValue {
   number?: number;
   currency?: Currency;
 }

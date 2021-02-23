@@ -3,8 +3,8 @@ import { message } from 'antd';
 import ProForm, { ProFormText, ProFormCaptcha } from '@ant-design/pro-form';
 import { MobileTwoTone, MailTwoTone, LockTwoTone } from '@ant-design/icons';
 import styles from './index.less';
-import ProFormCaptchaImg from '@/basic-comps/form-item/pro-form-captcha-img/index';
-import RememberPwd from '@/basic-comps/form-item/remember-pwd/index';
+import ProFormCaptchaImg from '@/basic-comps/form-item/ProFormCaptchaImg/index';
+import RememberPwd from '@/basic-comps/form-item/RememberPwd/index';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {

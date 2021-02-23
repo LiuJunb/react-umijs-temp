@@ -6,7 +6,7 @@ import { Tag, Space, Button } from 'antd';
 import type { ProColumns } from '@ant-design/pro-table';
 import ProTable from '@ant-design/pro-table';
 
-import PriceInput from '@/basic-comps/form-item/price-input/index';
+import PriceInput from '@/basic-comps/form-item/PriceInput/index';
 
 // 定义类型
 type RoleItem = {

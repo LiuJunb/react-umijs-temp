@@ -1,3 +1,6 @@
+/**
+ * 登录页面-表单的 formItem : 记住密码 和 忘记密码
+ */
 import React from 'react';
 import styles from './index.less';
 import ProForm from '@ant-design/pro-form';
@@ -62,6 +65,7 @@ export type ProFormItemProps<T = {}> = {
 } & FormItemProps;
 
 export type ProFormCaptchaImgProps = ProFormItemProps<InputProps> & {
+  // 类型合并
   // 图片 或者 路劲
   captchaImg: string;
   onCaptcha?: any;
@@ -69,9 +73,6 @@ export type ProFormCaptchaImgProps = ProFormItemProps<InputProps> & {
   onChange?: any;
 };
 
-/**
- * 登录表单的 formItem : 记住密码 和 忘记密码
- */
 const ProFormCaptchaImg: React.FC<ProFormCaptchaImgProps> = (props) => {
   // 这么写是为了防止restProps中 带入 onChange, defaultValue, rules props tabUtil
   const {

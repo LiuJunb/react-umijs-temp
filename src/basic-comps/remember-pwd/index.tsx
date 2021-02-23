@@ -1,3 +1,6 @@
+/**
+ * 登录页面-自定义表单的 formItem : 记住密码 和 忘记密码
+ */
 import React, { useState } from 'react';
 import styles from './index.less';
 // import ProForm from '@ant-design/pro-form';
@@ -8,9 +11,6 @@ export interface RememberPwdProps {
   onChange?: (e: any) => void;
 }
 
-/**
- * 登录表单的 formItem : 记住密码 和 忘记密码
- */
 const RememberPwd: React.FC<RememberPwdProps> = ({
   defaultChecked = false,
   onChange,

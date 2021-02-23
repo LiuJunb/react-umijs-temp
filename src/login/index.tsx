@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { message } from 'antd';
 import ProForm, { ProFormText, ProFormCaptcha } from '@ant-design/pro-form';
 import { MobileTwoTone, MailTwoTone, LockTwoTone } from '@ant-design/icons';
 import styles from './index.less';
 import ProFormCaptchaImg from '@/basic-comps/pro-form-captcha-img/index';
-import RememberMe from '@/basic-comps/remember-me/index';
+import RememberPwd from '@/basic-comps/remember-pwd/index';
 
 const waitTime = (time: number = 100) => {
   return new Promise((resolve) => {
@@ -15,6 +15,14 @@ const waitTime = (time: number = 100) => {
 };
 
 export default () => {
+  const [captchaImg, setCaptchaImg] = useState<string>(
+    'http://172.16.121.73:8765/user/sys/user/captcha?t=1613985842126',
+  );
+
+  const rememberPwdChange = (event: any) => {
+    console.log(event);
+  };
+
   return (
     <div className={styles.login}>
       {/* 登录的面板 */}
@@ -125,6 +133,13 @@ export default () => {
                 message: '请输入手机号!',
               },
             ]}
+            captchaImg={captchaImg}
+            onCaptcha={async () => {
+              await waitTime(50);
+              setCaptchaImg(
+                `http://172.16.121.73:8765/user/sys/user/captcha?t=${new Date().getTime()}`,
+              );
+            }}
           ></ProFormCaptchaImg>
 
           {/* 4.获取手机验证码的表单项 */}
@@ -152,7 +167,10 @@ export default () => {
           />
 
           {/* 5.记住用户名和密码 */}
-          <RememberMe defaultChecked={true}></RememberMe>
+          <RememberPwd
+            defaultChecked={false}
+            onChange={rememberPwdChange}
+          ></RememberPwd>
         </ProForm>
       </div>
     </div>

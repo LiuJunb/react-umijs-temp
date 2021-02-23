@@ -5,6 +5,8 @@ import { route } from './p-config/_default_menus';
 import { history } from 'umi';
 import { HomeOutlined } from '@ant-design/icons';
 
+import GlobalHeaderRight from '@/basic-comps/header/GlobalHeaderRight';
+
 // 全局布局组件
 export default (props: any) => {
   const { location } = history;
@@ -49,6 +51,8 @@ export default (props: any) => {
       navTheme="light"
       logo={() => <img src="/icons/logo/logo2.png" className="logo"></img>}
       title=""
+      // 头部右边布局
+      rightContentRender={() => <GlobalHeaderRight />}
     >
       {props.children}
     </ProLayout>
